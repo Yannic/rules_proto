@@ -1,5 +1,3 @@
-package(default_visibility = ["//visibility:public"])
-
 licenses(["notice"])  # BSD/MIT-like license (for zlib)
 
 _ZLIB_HEADERS = [
@@ -26,7 +24,6 @@ genrule(
     srcs = _ZLIB_HEADERS,
     outs = _ZLIB_PREFIXED_HEADERS,
     cmd = "cp $(SRCS) $(@D)/zlib/include/",
-    visibility = ["//visibility:private"],
 )
 
 cc_library(
@@ -57,4 +54,5 @@ cc_library(
         "-Wno-implicit-function-declaration",
     ],
     includes = ["zlib/include/"],
+    visibility = ["//visibility:public"],
 )

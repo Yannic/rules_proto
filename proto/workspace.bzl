@@ -13,6 +13,7 @@
 ## limitations under the License.
 
 load("//proto/private:labels.bzl", _DEFAULT_TOOLCHAIN = "DEFAULT_TOOLCHAIN")
+load("//proto/private:labels.bzl", _ZLIB_BUILD_FILE = "ZLIB_BUILD_FILE")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", _http_archive = "http_archive")
 
 def proto_import_dependencies():
@@ -41,7 +42,7 @@ def proto_import_dependencies():
     # TODO(yannic): Switch to mirror that contains build files.
     _http_archive(
         name = "zlib",
-        build_file = "//third_party:zlib.BUILD.bazel",
+        build_file = _ZLIB_BUILD_FILE,
         sha256 = "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
         strip_prefix = "zlib-1.2.11",
         urls = [

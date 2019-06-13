@@ -189,6 +189,6 @@ def _lang_proto_aspect(
 # change at any time.
 proto_common = struct(
     TOOLCHAIN_TYPE = _TOOLCHAIN_TYPE,
-    experimental_lang_proto_aspect_impl = _lang_proto_aspect_impl,
+    lang_proto_aspect_impl = _lang_proto_aspect_impl,
     lang_proto_aspect = _lang_proto_aspect,
 )
