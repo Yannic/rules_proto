@@ -1,0 +1,53 @@
+// Copyright 2019 The Rules Protobuf Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package build.bazel.rules.proto.tests.dir;
+
+import "add_prefix/dir/proto/tests/add_prefix_with_dir.proto";
+import "add_prefix/proto/tests/add_prefix.proto";
+import "dir/strip_prefix_with_dir.proto";
+import "import_prefix/add_and_strip_empty_prefix.proto";
+import "import_prefix/add_and_strip_prefix.proto";
+import "import_prefix/add_and_strip_prefix/add_and_strip_empty_subdir_prefix.proto";
+import "import_prefix/add_and_strip_prefix_import.proto";
+import "import_prefix/dir/add_and_strip_prefix_subdir.proto";
+import "proto_source_root/proto_source_root.proto";
+import "proto_source_root/proto_source_root_import.proto";
+import "proto_source_root_without_dir.proto";
+import "strip_empty_prefix_without_dir.proto";
+import "strip_prefix.proto";
+import "strip_prefix/strip_empty_prefix.proto";
+import "strip_prefix_import.proto";
+import "proto/tests/no_prefix.proto";
+
+message ImportAll {
+  AddPrefixWithDir add_prefix_with_dir = 1;
+  AddPrefix add_prefix = 2;
+  StripPrefixWithDir strip_prefix_with_dir = 3;
+  AddAndStripEmptyPrefix add_and_strip_empty_prefix = 4;
+  AddAndStripPrefix add_and_strip_prefix = 5;
+  AddAndStripEmptySubdirPrefix add_and_strip_empty_subdir_prefix = 6;
+  AddAndStripPrefixImport add_and_strip_prefix_import = 7;
+  AddAndStripPrefixSubdir add_and_strip_prefix_subdir = 8;
+  ProtoSourceRoot proto_source_root = 9;
+  ProtoSourceRootImport proto_source_root_import = 10;
+  ProtoSourceRootWithoutDir proto_source_root_without_dir = 11;
+  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 12;
+  StripPrefix strip_prefix = 13;
+  StripEmptyPrefix strip_empty_prefix = 14;
+  StripPrefixImport strip_prefix_import = 15;
+  NoPrefix no_prefix = 16;
+}
