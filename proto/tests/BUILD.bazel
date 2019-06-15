@@ -61,6 +61,8 @@ proto_library(
         "//proto/tests/dir:strip_prefix_import_proto",
         "//proto/tests/dir:strip_prefix_proto",
         "//proto/tests/dir:strip_prefix_with_dir_proto",
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:timestamp_proto",
     ],
 )
 

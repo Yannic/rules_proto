@@ -32,6 +32,13 @@ def _file_path(proto_info, file):
         # {proto_source_root,import_prefix,strip_import_prefix} not defined.
         return file.path
 
+    root = file.root.path
+    if (root != "") and (not proto_source_root.startswith(root)):
+        # For some libraries in external workspaces, |proto_source_root| may
+        # not start with root, resulting in errors because of seemingly missing
+        # files (bug/69894844-8fa6-11e9-bc42-526af7764f64).
+        proto_source_root = "{}/{}".format(root, proto_source_root)
+
     # |file.path| is of form <proto_source_root>/<proto_path>.
     offset = len(proto_source_root) + 1
     return file.path[offset:]
