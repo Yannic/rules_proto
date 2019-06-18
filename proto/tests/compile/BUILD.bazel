@@ -23,6 +23,27 @@ proto_compile(
     ],
 )
 
+proto_compile(
+    name = "no_srcs_proto_compile",
+    deps = [
+        "//proto/tests:no_srcs_proto",
+    ],
+)
+
+proto_compile(
+    name = "no_srcs_deps_proto_compile",
+    deps = [
+        "//proto/tests:no_srcs_deps_proto",
+    ],
+)
+
+proto_compile(
+    name = "no_srcs_deps_no_srcs_proto_compile",
+    deps = [
+        "//proto/tests:no_srcs_deps_no_srcs_proto",
+    ],
+)
+
 java_proto_library(
     name = "proto_source_root_import_full_java_proto",
     tags = [

@@ -112,8 +112,13 @@ def _lang_proto_aspect_impl(
     proto_info = _proto_info(target)
 
     direct_sources = _direct_sources(proto_info)
-    descriptors = _descriptors(proto_info)
     outputs = _create_outputs(actions, direct_sources, get_output_files)
+    if len(outputs) < 1:
+        # There is nothing to generate because the `proto_library` doesn't have
+        # sources (https://github.com/Yannic/rules_proto/issues/2).
+        return depset()
+
+    descriptors = _descriptors(proto_info)
 
     args = actions.args()
 

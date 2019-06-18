@@ -85,3 +85,30 @@ proto_library(
         "//proto/tests:__subpackages__",
     ],
 )
+
+proto_library(
+    name = "no_srcs_proto",
+    visibility = [
+        "//proto/tests:__subpackages__",
+    ],
+)
+
+proto_library(
+    name = "no_srcs_deps_proto",
+    visibility = [
+        "//proto/tests:__subpackages__",
+    ],
+    deps = [
+        ":import_all_proto",
+    ],
+)
+
+proto_library(
+    name = "no_srcs_deps_no_srcs_proto",
+    visibility = [
+        "//proto/tests:__subpackages__",
+    ],
+    deps = [
+        ":no_srcs_proto",
+    ],
+)
