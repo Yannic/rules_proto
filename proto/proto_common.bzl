@@ -47,7 +47,7 @@ def _direct_sources(proto_info):
     return [_file_path(proto_info, src) for src in proto_info.direct_sources]
 
 def _descriptors(proto_info):
-    return [file.path for file in proto_info.transitive_descriptor_sets]
+    return [file.path for file in proto_info.transitive_descriptor_sets.to_list()]
 
 def _create_outputs(actions, srcs, output_name):
     return [actions.declare_file(f) for src in srcs for f in output_name(src)]

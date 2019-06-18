@@ -89,6 +89,7 @@ proto_library(
     ],
 )
 
+# TODO(yannic): This is incompatible with --incompatible_disable_proto_source_root.
 proto_library(
     name = "proto_source_root_proto",
     srcs = [
@@ -100,6 +101,7 @@ proto_library(
     ],
 )
 
+# TODO(yannic): This is incompatible with --incompatible_disable_proto_source_root.
 proto_library(
     name = "proto_source_root_import_proto",
     srcs = [
@@ -126,6 +128,7 @@ proto_library(
     ],
 )
 
+# TODO(yannic): This is incompatible with --incompatible_disable_proto_source_root.
 proto_library(
     name = "proto_source_root_import_full_proto",
     srcs = [
@@ -141,6 +144,7 @@ proto_library(
     ],
 )
 
+# TODO(yannic): This is incompatible with --incompatible_disable_proto_source_root.
 proto_library(
     name = "proto_source_root_without_dir_proto",
     srcs = [
