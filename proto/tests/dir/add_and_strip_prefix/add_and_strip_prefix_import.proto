@@ -23,8 +23,6 @@ import "import_prefix/add_and_strip_empty_prefix.proto";
 import "import_prefix/add_and_strip_prefix.proto";
 import "import_prefix/add_and_strip_prefix/add_and_strip_empty_subdir_prefix.proto";
 import "import_prefix/dir/add_and_strip_prefix_subdir.proto";
-import "proto_source_root/proto_source_root.proto";
-import "proto_source_root_without_dir.proto";
 import "strip_empty_prefix_without_dir.proto";
 import "strip_prefix.proto";
 import "strip_prefix/strip_empty_prefix.proto";
@@ -38,10 +36,8 @@ message AddAndStripPrefixImport {
   AddAndStripPrefix add_and_strip_prefix = 5;
   AddAndStripEmptySubdirPrefix add_and_strip_empty_subdir_prefix = 6;
   AddAndStripPrefixSubdir add_and_strip_prefix_subdir = 7;
-  ProtoSourceRoot proto_source_root = 8;
-  ProtoSourceRootWithoutDir proto_source_root_without_dir = 9;
-  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 10;
-  StripPrefix strip_prefix = 11;
-  StripEmptyPrefix strip_empty_prefix = 12;
-  NoPrefix no_prefix = 13;
+  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 8;
+  StripPrefix strip_prefix = 9;
+  StripEmptyPrefix strip_empty_prefix = 10;
+  NoPrefix no_prefix = 11;
 }
