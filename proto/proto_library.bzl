@@ -12,9 +12,6 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 
-load("//proto:proto_common.bzl", _proto_common = "proto_common")
-load("//proto:proto_toolchain.bzl", _proto_toolchain = "proto_toolchain")
-
 def proto_library(**attrs):
     """Bazel proto_library rule.
 
@@ -24,6 +21,3 @@ def proto_library(**attrs):
       **attrs: Rule attributes
     """
     native.proto_library(**attrs)
-
-proto_common = _proto_common
-proto_toolchain = _proto_toolchain

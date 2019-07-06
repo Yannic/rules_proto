@@ -14,7 +14,7 @@
 
 workspace(name = "build_bazel_rules_proto")
 
-load("//proto:repositories.bzl", "proto_import_dependencies")
-load("//proto:repositories.bzl", "proto_register_toolchains")
-rules_proto_dependencies()
-rules_proto_toolchains()
+load("//proto:workspace.bzl", "proto_import_dependencies")
+load("//proto:workspace.bzl", "proto_register_toolchains")
+proto_import_dependencies()
+proto_register_toolchains()

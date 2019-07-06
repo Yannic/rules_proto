@@ -15,12 +15,12 @@
 load("//proto/private:descriptor_set_path_seperator.bzl", _DescriptorSetPathSeperatorInfo = "DescriptorSetPathSeperatorInfo")
 load("//proto/private:labels.bzl", _DESCRIPTOR_SET_PATH_SEPERATOR = "DESCRIPTOR_SET_PATH_SEPERATOR")
 
-def _get_path_seperator_info(ctx):
+def get_path_seperator_info(ctx):
     descriptor_set_path_seperator = ctx.attr._descriptor_set_path_seperator
     return descriptor_set_path_seperator[_DescriptorSetPathSeperatorInfo]
 
 def _proto_toolchain_impl(ctx):
-    path_seperator_info = _get_path_seperator_info(ctx)
+    path_seperator_info = get_path_seperator_info(ctx)
 
     return [
         platform_common.ToolchainInfo(
