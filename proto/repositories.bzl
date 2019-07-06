@@ -12,9 +12,21 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 
-load("//proto:defs.bzl", _proto_library = "proto_library")
+load("//proto/private:dependencies.bzl", "dependencies")
+load("//proto/private:labels.bzl", "DEFAULT_TOOLCHAIN")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-def proto_library(**attrs):
-    print("Please import proto_library from defs.bzl")
+def rules_proto_dependencies():
+    for name in dependencies:
+        if name in native.existing_rules():
+            continue
 
-    _proto_library(**attrs)
+        http_archive(
+            name = name,
+            **dependencies[name]
+        )
+
+def rules_proto_toolchains():
+    native.register_toolchains(
+        DEFAULT_TOOLCHAIN,
+    )

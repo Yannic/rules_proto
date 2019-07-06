@@ -5,7 +5,7 @@ This repository contains Starlark implementation of Protobuf rules in Bazel.
 For the list of Proto rules, see the Bazel
 [documentation](https://docs.bazel.build/versions/master/be/overview.html).
 
-# Getting Started
+## Getting Started
 
 There is no need to use rules from this repository just yet. If you want to use
 rules\_proto anyway, add the following to your WORKSPACE file:
@@ -18,6 +18,10 @@ http_archive(
     urls = ["https://github.com/Yannic/rules_proto/archive/TODO"],
     sha256 = "TODO",
 )
+load("//proto:repositories.bzl", "proto_import_dependencies")
+load("//proto:repositories.bzl", "proto_register_toolchains")
+rules_proto_dependencies()
+rules_proto_toolchains()
 ```
 
 Then, in your BUILD files, import and use the rules:
@@ -30,12 +34,12 @@ proto_library(
 )
 ```
 
-# Migration Tools
+## Migration Tools
 
 In the future, this repository will also contain tools to migrate your project
 for Bazel incompatible changes.
 
-# Contributing
+## Contributing
 
 Bazel and rules\_proto are the work of many contributors. We appreciate your help!
 

@@ -12,43 +12,27 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 
-load("//proto/private:labels.bzl", _DEFAULT_TOOLCHAIN = "DEFAULT_TOOLCHAIN")
-load("//proto/private:labels.bzl", _ZLIB_BUILD_FILE = "ZLIB_BUILD_FILE")
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("//proto:repositories.bzl", "rules_proto_dependencies")
+load("//proto:repositories.bzl", "rules_proto_toolchains")
+
+_DEPRECATED_REPOSITORY_RULE_MESSAGE = " ".join([
+    "{old_rule}() is deprecated.",
+    "Please import @build_bazel_rules_proto//proto:repositories.bzl and use {new_rule}().",
+    "See https://github.com/Yannic/rules_proto/issues/6",
+])
 
 def proto_import_dependencies():
-    # TODO(yannic): Add options to skip / override dependencies.
+    print(_DEPRECATED_REPOSITORY_RULE_MESSAGE.format(
+        old_rule = "proto_import_dependencies",
+        new_rule = "rules_proto_dependencies",
+    ))
 
-    # TODO(yannic): Define dependencies in seperate file.
-
-    http_archive(
-        name = "bazel_skylib",
-        sha256 = "2ef429f5d7ce7111263289644d233707dba35e39696377ebab8b0bc701f7818e",
-        urls = [
-            "https://github.com/bazelbuild/bazel-skylib/releases/download/0.8.0/bazel-skylib.0.8.0.tar.gz",
-        ],
-    )
-
-    http_archive(
-        name = "com_google_protobuf",
-        sha256 = "03d2e5ef101aee4c2f6ddcf145d2a04926b9c19e7086944df3842b1b8502b783",
-        strip_prefix = "protobuf-3.8.0",
-        urls = [
-            "https://mirror.bazel.build/github.com/google/protobuf/archive/v3.8.0.tar.gz",
-            "https://github.com/protocolbuffers/protobuf/archive/v3.8.0.tar.gz",
-        ],
-    )
-
-    http_archive(
-        name = "zlib",
-        sha256 = "831e1be9ea79dc8cc427123531f926f1df514927cddb39b05245bd24632340bc",
-        strip_prefix = "org_zlib-394a8944cfed3568242196176779df8333af8596",
-        urls = [
-            "https://github.com/bazel-packages/org_zlib/archive/394a8944cfed3568242196176779df8333af8596.tar.gz",
-        ],
-    )
+    rules_proto_dependencies()
 
 def proto_register_toolchains():
-    native.register_toolchains(
-        _DEFAULT_TOOLCHAIN,
-    )
+    print(_DEPRECATED_REPOSITORY_RULE_MESSAGE.format(
+        old_rule = "proto_register_toolchains",
+        new_rule = "rules_proto_toolchains",
+    ))
+
+    rules_proto_toolchains()
