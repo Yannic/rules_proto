@@ -14,22 +14,13 @@
 
 licenses(["notice"])  # Apache 2
 
-load("//proto:proto_toolchain.bzl", "proto_toolchain")
-load("//proto/private:labels.bzl", "TOOLCHAIN_TYPE")
-
-toolchain_type(
-    name = "toolchain",
+cc_binary(
+    name = "protoc",
+    srcs = [
+        "main.cc",
+    ],
     visibility = ["//visibility:public"],
-)
-
-proto_toolchain(
-    name = "default_toolchain_impl",
-    protoc = "//src/cc/protoc",
-    visibility = ["//visibility:public"],
-)
-
-toolchain(
-    name = "default_toolchain",
-    toolchain = ":default_toolchain_impl",
-    toolchain_type = TOOLCHAIN_TYPE,
+    deps = [
+        "@com_google_protobuf//:protoc_lib",
+    ],
 )

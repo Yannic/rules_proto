@@ -98,6 +98,9 @@ starlark_proto_library(
         "//tests/dir:strip_prefix_import_starlark_proto",
         "//tests/dir:strip_prefix_starlark_proto",
         "//tests/dir:strip_prefix_with_dir_starlark_proto",
+        "@build_bazel_rules_proto_tests//:import_all_starlark_proto",
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:timestamp_proto",
     ],
 )
 

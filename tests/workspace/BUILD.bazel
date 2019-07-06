@@ -97,6 +97,8 @@ starlark_proto_library(
         "//dir:strip_prefix_import_starlark_proto",
         "//dir:strip_prefix_starlark_proto",
         "//dir:strip_prefix_with_dir_starlark_proto",
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:timestamp_proto",
     ],
 )
 

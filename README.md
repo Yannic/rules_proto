@@ -18,8 +18,8 @@ http_archive(
     urls = ["https://github.com/Yannic/rules_proto/archive/TODO"],
     sha256 = "TODO",
 )
-load("//proto:repositories.bzl", "proto_import_dependencies")
-load("//proto:repositories.bzl", "proto_register_toolchains")
+load("//proto:repositories.bzl", "rules_proto_dependencies")
+load("//proto:repositories.bzl", "rules_proto_toolchains")
 rules_proto_dependencies()
 rules_proto_toolchains()
 ```

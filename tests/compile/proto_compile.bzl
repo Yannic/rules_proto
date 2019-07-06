@@ -37,7 +37,7 @@ def _proto_compile_aspect_impl(target, ctx):
         flavor = "C++",
         get_generator_options = _cpp_options,
         get_output_files = _cpp_output_name,
-        language = "cpp",
+        language = "internal_rules_proto",
         target = target,
     )
     files.append(cpp)
