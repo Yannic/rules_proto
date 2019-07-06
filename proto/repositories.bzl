@@ -12,9 +12,21 @@
 ## See the License for the specific language governing permissions and
 ## limitations under the License.
 
-workspace(name = "build_bazel_rules_proto")
+load("//proto/private:dependencies.bzl", "dependencies")
+load("//proto/private:labels.bzl", "DEFAULT_TOOLCHAIN")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-load("//proto:repositories.bzl", "proto_import_dependencies")
-load("//proto:repositories.bzl", "proto_register_toolchains")
-rules_proto_dependencies()
-rules_proto_toolchains()
+def rules_proto_dependencies():
+    for name in dependencies:
+        if name in native.existing_rules():
+            continue
+
+        http_archive(
+            name = name,
+            **dependencies[name]
+        )
+
+def rules_proto_toolchains():
+    native.register_toolchains(
+        DEFAULT_TOOLCHAIN,
+    )
