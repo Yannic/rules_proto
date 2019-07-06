@@ -14,43 +14,32 @@
 
 licenses(["notice"])  # Apache 2
 
-load("//proto/tests/compile:proto_compile.bzl", "proto_compile")
+load("//tests/compile:proto_compile.bzl", "proto_compile")
 
 proto_compile(
     name = "import_all_proto_compile",
     deps = [
-        "//proto/tests:import_all_proto",
+        "//tests:import_all_proto",
     ],
 )
 
 proto_compile(
     name = "no_srcs_proto_compile",
     deps = [
-        "//proto/tests:no_srcs_proto",
+        "//tests:no_srcs_proto",
     ],
 )
 
 proto_compile(
     name = "no_srcs_deps_proto_compile",
     deps = [
-        "//proto/tests:no_srcs_deps_proto",
+        "//tests:no_srcs_deps_proto",
     ],
 )
 
 proto_compile(
     name = "no_srcs_deps_no_srcs_proto_compile",
     deps = [
-        "//proto/tests:no_srcs_deps_no_srcs_proto",
-    ],
-)
-
-java_proto_library(
-    name = "proto_source_root_import_full_java_proto",
-    tags = [
-        # Fails because imports are not cannonical.
-        "manual",
-    ],
-    deps = [
-        "//proto/tests/dir:proto_source_root_import_full_proto",
+        "//tests:no_srcs_deps_no_srcs_proto",
     ],
 )

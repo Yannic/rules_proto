@@ -14,30 +14,38 @@
 
 syntax = "proto3";
 
-package build.bazel.rules.proto.tests.dir;
+package build.bazel.rules.proto.tests;
 
-import "add_prefix/dir/proto/tests/add_prefix_with_dir.proto";
-import "add_prefix/proto/tests/add_prefix.proto";
+import "add_prefix/dir/tests/add_prefix_with_dir.proto";
+import "add_prefix/tests/add_prefix.proto";
 import "dir/strip_prefix_with_dir.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 import "import_prefix/add_and_strip_empty_prefix.proto";
 import "import_prefix/add_and_strip_prefix.proto";
 import "import_prefix/add_and_strip_prefix/add_and_strip_empty_subdir_prefix.proto";
+import "import_prefix/add_and_strip_prefix_import.proto";
 import "import_prefix/dir/add_and_strip_prefix_subdir.proto";
 import "strip_empty_prefix_without_dir.proto";
 import "strip_prefix.proto";
 import "strip_prefix/strip_empty_prefix.proto";
-import "proto/tests/no_prefix.proto";
+import "strip_prefix_import.proto";
+import "tests/no_prefix.proto";
 
-message StripPrefixImport {
+message ImportAll {
   AddPrefixWithDir add_prefix_with_dir = 1;
   AddPrefix add_prefix = 2;
   StripPrefixWithDir strip_prefix_with_dir = 3;
-  AddAndStripEmptyPrefix add_and_strip_empty_prefix = 4;
-  AddAndStripPrefix add_and_strip_prefix = 5;
-  AddAndStripEmptySubdirPrefix add_and_strip_empty_subdir_prefix = 6;
-  AddAndStripPrefixSubdir add_and_strip_prefix_subdir = 7;
-  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 8;
-  StripPrefix strip_prefix = 9;
-  StripEmptyPrefix strip_empty_prefix = 10;
-  NoPrefix no_prefix = 11;
+  google.protobuf.Any any = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  AddAndStripEmptyPrefix add_and_strip_empty_prefix = 6;
+  AddAndStripPrefix add_and_strip_prefix = 7;
+  AddAndStripEmptySubdirPrefix add_and_strip_empty_subdir_prefix = 8;
+  AddAndStripPrefixImport add_and_strip_prefix_import = 9;
+  AddAndStripPrefixSubdir add_and_strip_prefix_subdir = 10;
+  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 11;
+  StripPrefix strip_prefix = 12;
+  StripEmptyPrefix strip_empty_prefix = 13;
+  StripPrefixImport strip_prefix_import = 14;
+  NoPrefix no_prefix = 15;
 }

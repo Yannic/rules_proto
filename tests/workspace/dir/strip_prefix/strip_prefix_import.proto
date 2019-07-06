@@ -1,0 +1,43 @@
+// Copyright 2019 The Rules Protobuf Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package build.bazel.rules.proto.tests.workspace;
+
+// import "add_prefix/dir/add_prefix_with_dir.proto";
+// import "add_prefix/add_prefix.proto";
+import "dir/strip_prefix_with_dir.proto";
+import "import_prefix/add_and_strip_empty_prefix.proto";
+import "import_prefix/add_and_strip_prefix.proto";
+import "import_prefix/add_and_strip_prefix/add_and_strip_empty_subdir_prefix.proto";
+import "import_prefix/dir/add_and_strip_prefix_subdir.proto";
+import "strip_empty_prefix_without_dir.proto";
+import "strip_prefix.proto";
+import "strip_prefix/strip_empty_prefix.proto";
+import "no_prefix.proto";
+
+message StripPrefixImport {
+  // AddPrefixWithDir add_prefix_with_dir = 1;
+  // AddPrefix add_prefix = 2;
+  StripPrefixWithDir strip_prefix_with_dir = 3;
+  AddAndStripEmptyPrefix add_and_strip_empty_prefix = 4;
+  AddAndStripPrefix add_and_strip_prefix = 5;
+  AddAndStripEmptySubdirPrefix add_and_strip_empty_subdir_prefix = 6;
+  AddAndStripPrefixSubdir add_and_strip_prefix_subdir = 7;
+  StripEmptyPrefixWithoutDir strip_empty_prefix_without_dir = 8;
+  StripPrefix strip_prefix = 9;
+  StripEmptyPrefix strip_empty_prefix = 10;
+  NoPrefix no_prefix = 11;
+}

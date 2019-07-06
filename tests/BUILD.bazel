@@ -1,0 +1,176 @@
+## Copyright 2019 The Rules Protobuf Authors. All rights reserved.
+##
+## Licensed under the Apache License, Version 2.0 (the "License");
+## you may not use this file except in compliance with the License.
+## You may obtain a copy of the License at
+##
+##    http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+
+licenses(["notice"])  # Apache 2
+
+load("@//proto/private/rules:starlark_proto_library.bzl", "starlark_proto_library")
+
+proto_library(
+    name = "add_prefix_proto",
+    srcs = [
+        "add_prefix.proto",
+    ],
+    import_prefix = "add_prefix",
+    visibility = ["//visibility:public"],
+)
+
+starlark_proto_library(
+    name = "add_prefix_starlark_proto",
+    srcs = [
+        "add_prefix.proto",
+    ],
+    import_prefix = "add_prefix",
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "add_prefix_with_dir_proto",
+    srcs = [
+        "add_prefix_with_dir.proto",
+    ],
+    import_prefix = "add_prefix/dir",
+    visibility = ["//visibility:public"],
+)
+
+starlark_proto_library(
+    name = "add_prefix_with_dir_starlark_proto",
+    srcs = [
+        "add_prefix_with_dir.proto",
+    ],
+    import_prefix = "add_prefix/dir",
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "import_all_proto",
+    srcs = [
+        "import_all.proto",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//tests:add_prefix_proto",
+        "//tests:add_prefix_with_dir_proto",
+        "//tests:no_prefix_proto",
+        "//tests/dir:add_and_strip_empty_prefix_proto",
+        "//tests/dir:add_and_strip_empty_subdir_prefix_proto",
+        "//tests/dir:add_and_strip_prefix_import_proto",
+        "//tests/dir:add_and_strip_prefix_proto",
+        "//tests/dir:add_and_strip_prefix_subdir_proto",
+        "//tests/dir:strip_empty_prefix_proto",
+        "//tests/dir:strip_empty_prefix_without_dir_proto",
+        "//tests/dir:strip_prefix_import_proto",
+        "//tests/dir:strip_prefix_proto",
+        "//tests/dir:strip_prefix_with_dir_proto",
+        "@build_bazel_rules_proto_tests//:import_all_proto",
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:timestamp_proto",
+    ],
+)
+
+starlark_proto_library(
+    name = "import_all_starlark_proto",
+    srcs = [
+        "import_all.proto",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//tests:add_prefix_starlark_proto",
+        "//tests:add_prefix_with_dir_starlark_proto",
+        "//tests:no_prefix_starlark_proto",
+        "//tests/dir:add_and_strip_empty_prefix_starlark_proto",
+        "//tests/dir:add_and_strip_empty_subdir_prefix_starlark_proto",
+        "//tests/dir:add_and_strip_prefix_import_starlark_proto",
+        "//tests/dir:add_and_strip_prefix_starlark_proto",
+        "//tests/dir:add_and_strip_prefix_subdir_starlark_proto",
+        "//tests/dir:strip_empty_prefix_starlark_proto",
+        "//tests/dir:strip_empty_prefix_without_dir_starlark_proto",
+        "//tests/dir:strip_prefix_import_starlark_proto",
+        "//tests/dir:strip_prefix_starlark_proto",
+        "//tests/dir:strip_prefix_with_dir_starlark_proto",
+    ],
+)
+
+proto_library(
+    name = "no_prefix_proto",
+    srcs = [
+        "no_prefix.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+starlark_proto_library(
+    name = "no_prefix_starlark_proto",
+    srcs = [
+        "no_prefix.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "no_prefix_with_dir_proto",
+    srcs = [
+        "no_prefix_with_dir/no_prefix_with_dir.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+starlark_proto_library(
+    name = "no_prefix_with_dir_starlark_proto",
+    srcs = [
+        "no_prefix_with_dir/no_prefix_with_dir.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "no_srcs_proto",
+    visibility = ["//visibility:public"],
+)
+
+starlark_proto_library(
+    name = "no_srcs_starlark_proto",
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "no_srcs_deps_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":import_all_proto",
+    ],
+)
+
+starlark_proto_library(
+    name = "no_srcs_deps_starlark_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":import_all_starlark_proto",
+    ],
+)
+
+proto_library(
+    name = "no_srcs_deps_no_srcs_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":no_srcs_proto",
+    ],
+)
+
+starlark_proto_library(
+    name = "no_srcs_deps_no_srcs_starlark_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":no_srcs_starlark_proto",
+    ],
+)

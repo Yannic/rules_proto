@@ -14,10 +14,10 @@
 
 syntax = "proto3";
 
-package build.bazel.rules.proto.tests.dir;
+package build.bazel.rules.proto.tests.workspace;
 
-import "add_prefix/dir/proto/tests/add_prefix_with_dir.proto";
-import "add_prefix/proto/tests/add_prefix.proto";
+// import "add_prefix/dir/add_prefix_with_dir.proto";
+// import "add_prefix/add_prefix.proto";
 import "dir/strip_prefix_with_dir.proto";
 import "import_prefix/add_and_strip_empty_prefix.proto";
 import "import_prefix/add_and_strip_prefix.proto";
@@ -26,11 +26,11 @@ import "import_prefix/dir/add_and_strip_prefix_subdir.proto";
 import "strip_empty_prefix_without_dir.proto";
 import "strip_prefix.proto";
 import "strip_prefix/strip_empty_prefix.proto";
-import "proto/tests/no_prefix.proto";
+import "no_prefix.proto";
 
 message AddAndStripPrefixImport {
-  AddPrefixWithDir add_prefix_with_dir = 1;
-  AddPrefix add_prefix = 2;
+  // AddPrefixWithDir add_prefix_with_dir = 1;
+  // AddPrefix add_prefix = 2;
   StripPrefixWithDir strip_prefix_with_dir = 3;
   AddAndStripEmptyPrefix add_and_strip_empty_prefix = 4;
   AddAndStripPrefix add_and_strip_prefix = 5;
